@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/guestbook/guestbook.iml" filepath="$PROJECT_DIR$/guestbook/guestbook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/photouploader/photouploader.iml" filepath="$PROJECT_DIR$/photouploader/photouploader.iml" />
+    </modules>
+  </component>
+</project>

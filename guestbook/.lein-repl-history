@@ -1,0 +1,17 @@
+clj-debugger
+(use 'debugger.core)
+(h)
+(ns guestbook.routes.home
+  (:require [compojure.core :refer :all]
+            [guestbook.views.layout :as layout]
+            [hiccup.form :refer :all]
+            [debugger.core :refer :all]))
+repl
+(h)
+( break (inc 1))
+(quit)
+(use 'guestbook.routes.home)
+home
+ls
+(homE)
+(home)
