@@ -1,0 +1,3 @@
+(use 'photouploader.repl)
+(start-server)
+(stop-server)

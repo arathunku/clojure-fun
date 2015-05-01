@@ -24,6 +24,7 @@
             (serve (get-handler)
                    {:port port
                     :init init
+                    :auto-refresh? true
                     :auto-reload? true
                     :destroy destroy
                     :join true}))

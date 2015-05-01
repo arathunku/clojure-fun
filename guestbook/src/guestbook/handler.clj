@@ -1,7 +1,7 @@
 (ns guestbook.handler
   (:require [compojure.core :refer [defroutes routes]]
             [ring.middleware.resource :refer [wrap-resource]]
-            [ring.middleware.file-info :refer [wrap-file-info]]
+            [ring.middleware.multipart-params :refer [wrap-multipart-params]]
             [hiccup.middleware :refer [wrap-base-url]]
             [compojure.handler :as handler]
             [compojure.route :as route]
@@ -23,5 +23,5 @@
 
 (def app
   (-> (routes auth-routes home-routes app-routes)
-      (handler/site)
-      (wrap-base-url)))
+    (handler/)
+    (wrap-base-url)))

@@ -20,7 +20,7 @@
 
 
 (defn home [& [name message error]]
-  (println "WORKS!!!!")
+  (println "WORKS!")
   (layout/common
    [:h1 "Hello World!!!"]
    [:p "guestbook"]

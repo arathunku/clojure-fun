@@ -9,7 +9,7 @@
 (defn home-layout [_]
   (layout/common
     [:div {:class "container"}
-     [:a { :href "/photos"} "Photos" ]]))
+     [:a {:href "/photos"} "Photos"]]))
 
 (defresource home
   :allowed-methods [:get]
