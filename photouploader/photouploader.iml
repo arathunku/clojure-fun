@@ -15,13 +15,17 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Leiningen: byte-streams:0.2.0" level="project" />
     <orderEntry type="library" name="Leiningen: cheshire:5.4.0" level="project" />
+    <orderEntry type="library" name="Leiningen: clj-time:0.9.0" level="project" />
     <orderEntry type="library" name="Leiningen: clojure-complete:0.2.3" level="project" />
     <orderEntry type="library" name="Leiningen: compojure:1.3.3" level="project" />
     <orderEntry type="library" name="Leiningen: hiccup:1.0.5" level="project" />
+    <orderEntry type="library" name="Leiningen: joplin.core:0.2.12" level="project" />
+    <orderEntry type="library" name="Leiningen: korma:0.4.0" level="project" />
     <orderEntry type="library" name="Leiningen: lib-noir:0.9.9" level="project" />
     <orderEntry type="library" name="Leiningen: liberator:0.12.2" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/clojure:1.6.0" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/tools.nrepl:0.2.6" level="project" />
+    <orderEntry type="library" name="Leiningen: postgresql:9.3-1101.jdbc4" level="project" />
     <orderEntry type="library" name="Leiningen: ring-mock:0.1.5" level="project" />
     <orderEntry type="library" name="Leiningen: ring-server:0.4.0" level="project" />
     <orderEntry type="library" name="Leiningen: ring/ring-devel:1.3.2" level="project" />
@@ -34,15 +38,19 @@
     <orderEntry type="library" name="Leiningen: com.fasterxml.jackson.dataformat/jackson-dataformat-cbor:2.4.4" level="project" />
     <orderEntry type="library" name="Leiningen: com.fasterxml.jackson.dataformat/jackson-dataformat-smile:2.4.4" level="project" />
     <orderEntry type="library" name="Leiningen: tigris:0.1.1" level="project" />
+    <orderEntry type="library" name="Leiningen: joda-time:2.6" level="project" />
     <orderEntry type="library" name="Leiningen: medley:0.5.5" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/tools.macro:0.1.5" level="project" />
     <orderEntry type="library" name="Leiningen: ring/ring-core:1.3.2" level="project" />
-    <orderEntry type="library" name="Leiningen: clj-time:0.6.0" level="project" />
     <orderEntry type="library" name="Leiningen: commons-fileupload:1.3" level="project" />
     <orderEntry type="library" name="Leiningen: commons-io:2.4" level="project" />
     <orderEntry type="library" name="Leiningen: crypto-equality:1.0.0" level="project" />
     <orderEntry type="library" name="Leiningen: crypto-random:1.2.0" level="project" />
-    <orderEntry type="library" name="Leiningen: joda-time:2.2" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure/java.classpath:0.2.2" level="project" />
+    <orderEntry type="library" name="Leiningen: ragtime/ragtime.core:0.3.8" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure/tools.cli:0.2.2" level="project" />
+    <orderEntry type="library" name="Leiningen: c3p0:0.9.1.2" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure/java.jdbc:0.3.5" level="project" />
     <orderEntry type="library" name="Leiningen: clojurewerkz/scrypt:1.2.0" level="project" />
     <orderEntry type="library" name="Leiningen: clout:2.1.1" level="project" />
     <orderEntry type="library" name="Leiningen: ring-middleware-format:0.5.0" level="project" />
@@ -88,7 +96,6 @@
     <orderEntry type="library" name="Leiningen: watchtower:0.1.1" level="project" />
     <orderEntry type="library" name="Leiningen: clj-stacktrace:0.2.7" level="project" />
     <orderEntry type="library" name="Leiningen: ns-tracker:0.2.2" level="project" />
-    <orderEntry type="library" name="Leiningen: org.clojure/java.classpath:0.2.2" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/tools.namespace:0.2.4" level="project" />
   </component>
 </module>
