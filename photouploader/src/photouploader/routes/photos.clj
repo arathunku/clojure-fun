@@ -1,22 +1,21 @@
 (ns photouploader.routes.photos
   (:import (javax.imageio ImageIO)
-           (org.apache.commons.io IOUtils)
            (java.io ByteArrayInputStream))
   (:require [compojure.core :refer :all]
             [photouploader.views.photos.index :as photos-list-view]
-            [clojure.java.io :as io]
             [liberator.core :refer [defresource]]
+            [cheshire.core :as json]
+            [liberator.representation :refer [ring-response]]
             [byte-streams :refer [to-input-stream]]
             [photouploader.models.photos :as photos-db]))
 
 (defn- handle-photo-stream [file size]
-  (println "handle photo-stream")
   (let [bytes-stream (:bytes-stream file)
         filename (:filename file)]
     (if (empty? filename)
       {:error "Missing file" :image nil}
       (with-open [in bytes-stream]
-        (with-open [out (java.io.BufferedOutputStream. (java.io.FileOutputStream. (str "/home/arathunku/Downloads/assets/" filename)))]
+        (with-open [out (java.io.BufferedOutputStream. (java.io.FileOutputStream. (str "public/assets/" filename)))]
           (let [buffer (make-array Byte/TYPE 1)]
             (loop [g (.read in buffer)
                    r 0
@@ -50,14 +49,24 @@
     (do
       (photos-db/create {:image_file_name    filename
                          :image_content_type "image/png"
-                         :image_file_size    (count image)}))
-    (println error)))
+                         :image_file_size    (count image)})
+      {:response {:filename filename}})
+    {:response response}))
 
-(defn handle-photo-upload [file _ctx]
-  (println (-> file
-             (handle-photo-stream 200000)
-             (validate-photo-dimensions 10 10)
-             (save-image))))
+(defn- handle-photo-upload [file _ctx]
+  (-> file
+    (handle-photo-stream 200000)
+    (validate-photo-dimensions 200 200)
+    (save-image)))
+
+(defn- handle-photo-created [ctx]
+  (let [response (:response ctx)
+        error (:error response)
+        status (if (empty? error) 200 422)]
+
+  (ring-response {:headers {"Location" "/photos"}
+                  :status  status
+                  :body    (json/encode response)})))
 
 (defresource photos-list
   :allowed-methods [:get]
@@ -68,8 +77,7 @@
   :allowed-methods [:post]
   :available-media-types ["text/html" "application/json "]
   :post! (partial handle-photo-upload file)
-  :post-redirect? true
-  :location (fn [ctx] "/photos"))
+  :handle-created (partial handle-photo-created))
 
 
 (defroutes photos-routes

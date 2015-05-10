@@ -17,8 +17,7 @@
     :image_content_type
     :image_file_name
     :image_file_size
-    :image_updated_at)
-  (database db/postgres))
+    :image_updated_at))
 
 (defn create
   [{:keys [:image_file_name
