@@ -1,5 +1,5 @@
 (ns photouploader.test.routes.photos
-  (:require (korma [core :as korma] [db :as kdb]))
+  (:require (korma [db :as kdb]))
   (:require [midje.sweet :refer :all]
             [clojure.java.io :as io]
             [cheshire.core :as json]
@@ -23,7 +23,7 @@
     (fact "returns error on lack of a file"
       (let [response (subject/photos-routes (mock/request :post "/photos"))]
         (:status response) => 422
-        (get (json/decode (:body response)) "error") => "Missing file"))
+        (first (get (json/decode (:body response)) "errors")) => "Missing file"))
 
     (fact "validates file upload size"
       (let [filecontent {:bytes-stream (input-stream (make-array Byte/TYPE 200001))
@@ -34,7 +34,7 @@
                       :params {:file filecontent})
             response (subject/photos-routes request)]
         (:status response) => 422
-        (get (json/decode (:body response)) "error") => "File is too big, I can't take it anymore"))
+        (first (get (json/decode (:body response)) "errors")) => "File is too big, I can't take it anymore"))
 
     (fact "returns error about dimensions"
       (with-open [in (input-stream (file "test/photouploader/test/fixtures/image_too_small.png"))]
@@ -47,7 +47,7 @@
               response (subject/photos-routes request)]
 
           (:status response) => 422
-          (get (json/decode (:body response)) "error") => "Wrong dimensions.")))
+          (first (get (json/decode (:body response)) "errors")) => "Wrong dimensions.")))
 
     (fact "creates photo and returns its id"
       (with-open [in (input-stream (file "test/photouploader/test/fixtures/image.png"))]
@@ -61,7 +61,7 @@
 
           (:status response) => 200
           (.exists (as-file "public/assets/test.png"))  => true
-          (get (json/decode (:body response)) "filename") => "test.png"
+          (get-in (json/decode (:body response)) ["photo" "image_file_name"]) => "test.png"
           (io/delete-file "public/assets/test.png"))))))
 
 (facts "GET to /photos"

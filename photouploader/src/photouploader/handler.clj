@@ -9,6 +9,7 @@
             [hiccup.middleware :refer [wrap-base-url]]
             [photouploader.routes.home :refer [home-routes]]
             [photouploader.routes.photos :refer [photos-routes]]
+            [photouploader.db :as db]
             [byte-streams :refer [seq-of]]))
 
 (defn stream-byte-array-store
