@@ -1,3 +1,32 @@
 (use 'photouploader.repl)
 (start-server)
 (stop-server)
+(println "Złóż życzenia mamie!")
+(dotimes [n 5] (do (println "Złóż życzenia mamie!") (Thread/sleep 250))
+)
+(dotimes [n 5] (do (println "Złóż życzenia mamie!")
+))
+(dotimes [n 5]
+  (do
+    (println "Złóż życzenia mamie!")
+    (Thread/sleep 100)))
+(dotimes [n 5]
+  (do
+    (Thread/sleep 100)))
+    (println "Złóż życzenia mamie!")
+    (Thread/sleep 100)))
+)
+(dotimes [n 5]
+    (println "Złóż życzenia mamie!")
+    (Thread/sleep 100)))
+    (println "Złóż życzenia mamie!")
+(dotimes [n 5]
+  (do
+    (println "Złóż życzenia mamie!")
+    (Thread/sleep 100)))
+(dotimes [n 5]
+  (do
+    (println "Złóż życzenia mamie!")
+    (Thread/sleep 100)))
+exitr
+exit
